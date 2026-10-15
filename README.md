@@ -1,6 +1,6 @@
 # trabajo-at
 
-Evidencias de las actividades de aprendizaje GA6-220501096 (Semestre 8, CORHUILA).
+Evidencias de las actividades de aprendizaje GA6-220501096.
 
 | Actividad | Evidencia | Ubicación |
 |---|---|---|
