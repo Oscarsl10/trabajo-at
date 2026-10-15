@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial de Git para principiantes</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Tutorial de Git para principiantes</h1>
+    <p>Aprende los conceptos básicos del control de versiones en cuatro pasos.</p>
+  </header>
+  <nav>
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#inicio">Crear un repositorio</a></li>
+      <li><a href="#commit">Guardar cambios con commit</a></li>
+      <li><a href="#ramas">Trabajar con ramas</a></li>
+      <li><a href="#remoto">Subir al repositorio remoto</a></li>
+    </ol>
+  </nav>
+  <main>
+    <article id="inicio">
+      <h2>1. Crear un repositorio</h2>
+      <img src="img/git.svg" alt="1. Crear un repositorio">
+      <p>Un repositorio es la carpeta de tu proyecto con su historial. Se crea con <code>git init</code> y se descarga uno existente con <code>git clone</code>. Verifica el estado con <code>git status</code>.</p>
+    </article>
+    <article id="commit">
+      <h2>2. Guardar cambios con commit</h2>
+      <img src="img/commit.svg" alt="2. Guardar cambios con commit">
+      <p>Primero se agregan los archivos al área de preparación con <code>git add .</code> y luego se guarda la versión con <code>git commit -m "mensaje"</code>. Cada commit es un punto al que puedes volver.</p>
+    </article>
+    <article id="ramas">
+      <h2>3. Trabajar con ramas</h2>
+      <img src="img/ramas.svg" alt="3. Trabajar con ramas">
+      <p>Las ramas permiten desarrollar funciones sin afectar la versión principal. Crea una con <code>git branch nombre</code>, cámbiate con <code>git switch nombre</code> y únela con <code>git merge nombre</code>.</p>
+    </article>
+    <article id="remoto">
+      <h2>4. Subir al repositorio remoto</h2>
+      <img src="img/remoto.svg" alt="4. Subir al repositorio remoto">
+      <p>Servicios como GitHub almacenan tu repositorio en la nube. Conéctalo con <code>git remote add origin URL</code>, y sube los cambios con <code>git push</code>; descarga novedades con <code>git pull</code>.</p>
+    </article>
+  </main>
+  <footer><p>Tutorial elaborado por Oscar Sierra – GA6-220501096-AA4-EV01</p></footer>
+</body>
+</html>

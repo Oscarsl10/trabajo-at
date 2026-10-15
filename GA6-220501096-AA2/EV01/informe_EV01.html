@@ -1,0 +1,55 @@
+<!doctype html><html lang='es'><head><meta charset='utf-8'><title>Informe técnico: Sentencias DDL y DML de SQL</title><style>body{font-family:Georgia,serif;line-height:1.5;color:#222;margin:0}
+.cover{height:95vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;page-break-after:always}
+.cover h1{font-size:30px;margin:10px 0}.cover p{margin:4px 0;font-size:16px}
+main{padding:0 8px}h2{color:#1f4e79;border-bottom:2px solid #1f4e79;padding-bottom:3px;margin-top:26px}h3{color:#333}
+pre{background:#f4f4f4;border:1px solid #ccc;padding:8px;font-size:12px;white-space:pre-wrap;page-break-inside:avoid}
+table{border-collapse:collapse;margin:8px 0;font-size:13px;width:100%}th,td{border:1px solid #888;padding:4px 6px;text-align:left}th{background:#dce6f1}
+@page{margin:2cm}</style></head><body><div class='cover'><p>Ficha GA6-220501096</p><h1>Informe técnico: Sentencias DDL y DML de SQL</h1><p>GA6-220501096-AA2-EV01</p><br><p><b>Aprendiz:</b> Oscar Sierra</p><p>Corporación Universitaria del Huila – CORHUILA</p><p>Octubre de 2026</p></div><main><h2>1. Introducción</h2><p>El lenguaje SQL se divide en sentencias DDL (definición de estructuras: CREATE, ALTER, DROP) y DML (manipulación de datos: INSERT, UPDATE, DELETE, SELECT). Este informe documenta las sentencias empleadas para resolver el taller de la tabla «libreta», ejecutadas en MySQL 8.0.</p>
+<h2>2. Objetivo</h2><p>Aplicar sentencias DDL y DML de SQL para crear, consultar, poblar y actualizar una tabla, verificando cada paso con su resultado.</p>
+<h2>3. Desarrollo del taller</h2>
+<h3>Punto 1. Crear la tabla «libreta»</h3><pre>CREATE TABLE libreta (
+  nombre    VARCHAR(20),
+  domicilio VARCHAR(30),
+  telefono  VARCHAR(11)
+);</pre>
+<h3>Punto 2. Visualizar las tablas existentes</h3><pre>SHOW TABLES;</pre><p><i>Resultado obtenido en MySQL 8.0:</i></p><pre>+----------------------+
+| Tables_in_taller_sql |
++----------------------+
+| libreta              |
++----------------------+</pre>
+<h3>Punto 3. Estructura de la tabla</h3><pre>DESCRIBE libreta;</pre><p><i>Resultado obtenido en MySQL 8.0:</i></p><pre>+-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| nombre    | varchar(20) | YES  |     | NULL    |       |
+| domicilio | varchar(30) | YES  |     | NULL    |       |
+| telefono  | varchar(11) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+</pre>
+<h3>Punto 4. Ingresar los registros</h3><pre>INSERT INTO libreta (nombre, domicilio, telefono) VALUES (&#x27;Alberto Mores&#x27;, &#x27;Colon 123&#x27;, &#x27;4234567&#x27;);
+INSERT INTO libreta (nombre, domicilio, telefono) VALUES (&#x27;Juan Torres&#x27;, &#x27;Avellaneda 135&#x27;, &#x27;4458787&#x27;);</pre>
+<h3>Punto 5. Mostrar todos los registros</h3><pre>SELECT * FROM libreta;</pre><p><i>Resultado obtenido en MySQL 8.0:</i></p><pre>+---------------+----------------+----------+
+| nombre        | domicilio      | telefono |
++---------------+----------------+----------+
+| Alberto Mores | Colon 123      | 4234567  |
+| Juan Torres   | Avellaneda 135 | 4458787  |
++---------------+----------------+----------+</pre>
+<h3>Punto 6. Actualizar los datos insertados</h3><pre>UPDATE libreta SET telefono = &#x27;4234000&#x27; WHERE nombre = &#x27;Alberto Mores&#x27;;
+UPDATE libreta SET domicilio = &#x27;Avellaneda 200&#x27;, telefono = &#x27;4458000&#x27; WHERE nombre = &#x27;Juan Torres&#x27;;
+SELECT * FROM libreta;</pre><p><i>Resultado obtenido en MySQL 8.0:</i></p><pre>+---------------+----------------+----------+
+| nombre        | domicilio      | telefono |
++---------------+----------------+----------+
+| Alberto Mores | Colon 123      | 4234000  |
+| Juan Torres   | Avellaneda 200 | 4458000  |
++---------------+----------------+----------+</pre>
+<h3>Punto 7. Insertar 5 registros más</h3><pre>INSERT INTO libreta (nombre, domicilio, telefono) VALUES
+  (&#x27;Maria Lopez&#x27;,   &#x27;Sarmiento 450&#x27;,  &#x27;4321122&#x27;),
+  (&#x27;Carlos Gomez&#x27;,  &#x27;Belgrano 78&#x27;,    &#x27;4335566&#x27;),
+  (&#x27;Ana Fernandez&#x27;, &#x27;Rivadavia 910&#x27;,  &#x27;4347788&#x27;),
+  (&#x27;Luis Perez&#x27;,    &#x27;San Martin 25&#x27;,  &#x27;4359900&#x27;),
+  (&#x27;Laura Diaz&#x27;,    &#x27;Mitre 666&#x27;,      &#x27;4361234&#x27;);</pre>
+<h3>Punto 8. Contar los registros</h3><pre>SELECT COUNT(*) AS total_registros FROM libreta;</pre><p><i>Resultado obtenido en MySQL 8.0:</i></p><pre>+-----------------+
+| total_registros |
++-----------------+
+|               7 |
++-----------------+</pre>
+<p>La tabla contiene 7 registros: los 2 iniciales y los 5 adicionales.</p>
+<h2>4. Conclusiones</h2><p>Se ejecutaron correctamente las sentencias DDL (CREATE TABLE, SHOW, DESCRIBE) y DML (INSERT, SELECT, UPDATE, COUNT) del taller. El script completo está en <code>libreta.sql</code>.</p></main></body></html>

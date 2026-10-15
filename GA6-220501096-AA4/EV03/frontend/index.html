@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TiendaFácil – Inventario y ventas</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header>
+    <h1>TiendaFácil</h1>
+    <nav aria-label="Principal">
+      <button class="tab activa" data-vista="inventario">Inventario</button>
+      <button class="tab" data-vista="ventas">Nueva venta</button>
+      <button class="tab" data-vista="historial">Historial</button>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section id="inventario" class="vista">
+      <h2>Inventario de productos</h2>
+      <form id="form-producto" novalidate>
+        <input type="hidden" id="p-id">
+        <label>Código <input id="p-codigo" required maxlength="20" placeholder="BEB-001"></label>
+        <label>Nombre <input id="p-nombre" required maxlength="80"></label>
+        <label>Precio <input id="p-precio" type="number" min="1" step="50" required></label>
+        <label>Stock <input id="p-stock" type="number" min="0" step="1" required></label>
+        <button type="submit" class="primario" id="btn-guardar">Guardar producto</button>
+        <button type="button" id="btn-cancelar" hidden>Cancelar</button>
+        <p class="error" id="p-error" role="alert"></p>
+      </form>
+      <input id="buscar" type="search" placeholder="Buscar por código o nombre…" aria-label="Buscar producto">
+      <div class="tabla-wrap">
+        <table>
+          <thead><tr><th>Código</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr></thead>
+          <tbody id="tabla-productos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ventas" class="vista" hidden>
+      <h2>Registrar venta</h2>
+      <div class="fila">
+        <label>Producto <select id="v-producto"></select></label>
+        <label>Cantidad <input id="v-cantidad" type="number" min="1" value="1"></label>
+        <button id="btn-agregar" class="primario">Agregar</button>
+      </div>
+      <p class="error" id="v-error" role="alert"></p>
+      <div class="tabla-wrap">
+        <table>
+          <thead><tr><th>Producto</th><th>Cant.</th><th>Subtotal</th><th></th></tr></thead>
+          <tbody id="tabla-carrito"></tbody>
+        </table>
+      </div>
+      <p class="total">Total: <strong id="total">$0</strong></p>
+      <button id="btn-vender" class="primario">Confirmar venta</button>
+    </section>
+
+    <section id="historial" class="vista" hidden>
+      <h2>Historial de ventas</h2>
+      <div class="tabla-wrap">
+        <table>
+          <thead><tr><th>N.º</th><th>Fecha</th><th>Detalle</th><th>Total</th></tr></thead>
+          <tbody id="tabla-historial"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="aviso" role="status" aria-live="polite"></div>
+  <footer>TiendaFácil – GA6-220501096-AA4-EV03 · Oscar Sierra</footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
